@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 import sqlite3
 import os
 
+
 # Crear la aplicación Flask
 app = Flask(__name__)
 
@@ -135,5 +136,6 @@ def info_usuario():
         "rol": rol
     })
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    render_port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=render_port, debug=True)
